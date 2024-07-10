@@ -38,7 +38,7 @@
 
 <br>
 
-<!--     <div class="w-full mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+    <div class="w-full mx-auto bg-white shadow-md rounded-lg overflow-hidden">
   <div class="p-4">
     <div class="bg-amber-500 text-white rounded-lg p-4 mb-4 flex items-center">
                 <img src="imagenes/video.png" alt="Video" class="h-14 mr-2">
@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <br>
     <div class="w-full mx-auto bg-white shadow-md rounded-lg overflow-hidden">
