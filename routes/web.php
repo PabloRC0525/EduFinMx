@@ -44,3 +44,7 @@ Route::get('edit', function () {
 Route::get('/registrar', function () {
     return view('registrar');
 });
+
+Route::get('medallas', function () {
+    return view('medallas');
+});
