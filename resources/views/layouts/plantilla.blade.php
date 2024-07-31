@@ -12,7 +12,7 @@
     
     <div class="flex h-15 items-center justify-between">
 
-    <img src="imagenes/logo.jpg" alt="Logo" class="h-8 mr-2">
+    <img src="./imagenes/logo.jpg" alt="Logo" class="h-8 mr-2">
 
       <h1 class="text-xl text-white font-bold mt-1 mb-1">EduFinMx</h1>
         

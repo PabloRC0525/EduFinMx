@@ -8,8 +8,8 @@
 <div class="flex items-center justify-center mt-8">
 
   <div class="mr-4">
-    <img src="imagenes/logo2.png" alt="Logo de EduFinMx" class="h-44 w-44">
-  </div>
+    <img src="./imagenes/logo2.png" alt="Logo de EduFinMx" class="h-44 w-44">
+  </div> 
   
   <h2 class="text-6xl font-bold text-center mt-1 mb-1">
     <span class="bg-gradient-to-r from-amber-500 to-amber-900 text-transparent bg-clip-text">EduFin</span>
