@@ -6,7 +6,7 @@
   <link href="tailwind.css" rel="stylesheet">
   @vite('resources/css/app.css')
 </head>
-<body class="bg-white">
+<body class="flex flex-col min-h-screen bg-white">
 
   <header class="bg-neutral-950 shadow px-6">
     
@@ -79,7 +79,7 @@
   </div>
 
   </header >
-  <main class="ml-5 mr-5 text-xl mt-1 mb-1">
+  <main class="flex-grow ml-5 mr-5 text-xl mt-1 mb-1">
     @yield('contenido')
   </main>
 
