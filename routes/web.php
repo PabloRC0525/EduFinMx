@@ -42,3 +42,7 @@ Route::put('/perfil/actualizar', [UserController::class, 'Update'])->name('Actua
 Route::view('/confirmar', 'confirmar')->middleware('auth')->name('confirmar');
 
 Route::delete('/eliminar-cuenta', [UserController::class, 'delete'])->name('eliminar-cuenta');
+
+Route::view('/lecccion-2', 'leccion2')->middleware('auth')->name('lec2');
+
+Route::view('/leccion-3', 'leccion3')->middleware('auth')->name('lec3');

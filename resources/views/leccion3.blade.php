@@ -11,6 +11,15 @@
   #next-button {
       display: none; /* Oculta el botón de "Siguiente" por defecto */
   }
+  #button-container {
+      display: flex; /* Usa Flexbox para alinear los botones */
+      justify-content: center; /* Centra los botones horizontalmente */
+      gap: 1rem; /* Espacio entre los botones */
+  }
+  .completed-button {
+      cursor: not-allowed; /* Cambia el cursor para indicar que el botón está deshabilitado */
+      opacity: 0.5; /* Opcional: Cambia la opacidad del botón deshabilitado */
+  }
 </style>
 
 <div class="w-full h-full flex items-center justify-center bg-white shadow-md rounded-lg overflow-hidden">
@@ -73,21 +82,26 @@
     <div id="progress-bar" class="h-4 bg-green-500 rounded-md" style="width: 0%;"></div>
 </div>
 
-<div class="flex justify-center space-x-4">
-  <a href="{{ route('lec2') }}"><button id="next-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Siguiente</button></a>
+<div id="button-container">
+    <a href="{{ route('lec2') }}"><button id="prev-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Anterior</button></a>
+    <a href="{{ route('medallas') }}"><button id="next-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Finalizar</button></a>
 </div>
 
 <section class="lecciones mt-5">
     <h2 class="text-xl font-bold mt-1 mb-1">Lecciones</h2>
     <ul class="text-xl text-black-500 mt-1 mb-1">
-        <li><a class="font-bold">Lección 1: Introducción a las finanzas personales</a></li>
+        <li><a>Lección 1: Introducción a las finanzas personales</a></li>
         <li><a>Lección 2: Presupuesto y planificación financiera</a></li>
-        <li><a>Lección 3: Conceptos básicos de ahorro</a></li>
+        <li><a class="font-bold">Lección 3: Conceptos básicos de ahorro</a></li>
     </ul>
 </section>
 
 <script>
     var progress = 0; // Variable para almacenar el progreso actual
+    var completedVideos = {
+        video1: false,
+        video2: false
+    };
 
     function updateProgressBar() {
         var progressBar = document.getElementById('progress-bar');
@@ -95,10 +109,9 @@
 
         // Mostrar el botón "Siguiente" solo si la barra está llena
         if (progress >= 100) {
-            progress = 100;
-            nextButton.style.display = 'block';
+            nextButton.style.display = 'inline-block'; // Mostrar el botón "Siguiente"
         } else {
-            nextButton.style.display = 'none';
+            nextButton.style.display = 'none'; // Ocultar el botón "Siguiente"
         }
 
         // Actualizar el ancho de la barra de progreso
@@ -106,13 +119,23 @@
     }
 
     document.getElementById('complete-video1').addEventListener('click', function() {
-        progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-        updateProgressBar();
+        if (!completedVideos.video1) {
+            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
+            completedVideos.video1 = true;
+            updateProgressBar();
+            this.classList.add('completed-button'); // Desactivar el botón
+            this.disabled = true; // Opcional: Desactivar el botón para evitar clics futuros
+        }
     });
 
     document.getElementById('complete-video2').addEventListener('click', function() {
-        progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-        updateProgressBar();
+        if (!completedVideos.video2) {
+            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
+            completedVideos.video2 = true;
+            updateProgressBar();
+            this.classList.add('completed-button'); // Desactivar el botón
+            this.disabled = true; // Opcional: Desactivar el botón para evitar clics futuros
+        }
     });
 
     // Inicialmente oculta el botón "Siguiente" hasta que se llena la barra
@@ -120,3 +143,4 @@
 </script>
 
 @endsection
+

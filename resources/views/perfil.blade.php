@@ -42,19 +42,19 @@
 
       <!-- Botones de acción -->
       <div class="flex flex-col space-y-4">
-        <button onclick="EditarA()" class="bg-amber-300 text-white py-2 px-4 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
+        <a href="{{ route('edit') }}"><button class="bg-amber-300 text-white py-2 px-20 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
           Editar
-        </button>
-        <button onclick="Medallas()" class="bg-amber-300 text-white py-2 px-4 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
+        </button></a>
+        <a href="{{ route('medallas') }}"><button class="bg-amber-300 text-white py-2 px-12 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
           Mis Medallas
-        </button>
+        </button></a>
         <a href="{{ route('logout') }}" class="text-end">
-          <button type="button" class="bg-amber-300 text-white py-2 px-10 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
+          <button type="button" class="bg-amber-300 text-white py-2 px-12 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
             Cerrar sesión
           </button>
         </a>
         <a href="{{ route('confirmar') }}" class="text-end">
-          <button type="button" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50">
+          <button type="button" class="bg-red-500 text-white py-2 px-6 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50">
             Eliminar mi cuenta
           </button>
         </a>
