@@ -17,7 +17,7 @@ return new class extends Migration
         $table->string('ApellidoPaterno');
         $table->string('ApellidoMaterno');
         $table->string('Correo')->unique();
-        $table->string('Telefono'); // Debe ser string para aceptar valores como números de teléfono
+        $table->string('Telefono'); 
         $table->string('password');
         $table->timestamps();
         $table->rememberToken();

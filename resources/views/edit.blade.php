@@ -23,12 +23,12 @@
       <!-- Información Adicional -->
       <div class="w-full md:w-2/3">
         <div class="mb-6">
-          <div class="text-2xl font-semibold text-amber-800">Correo</div>
-          <input name="Correo" class="text-xl text-gray-700 w-full rounded-md border border-gray-300 p-2" type="email" value="@auth {{Auth::user()->Correo}} @endauth">
-        </div>
-        <div class="mb-6">
           <div class="text-2xl font-semibold text-amber-800">Número</div>
           <input name="Telefono" class="text-xl text-gray-700 w-full rounded-md border border-gray-300 p-2" type="text" value="@auth {{Auth::user()->Telefono}} @endauth">
+        </div>
+        <div class="mb-6">
+          <div class="text-2xl font-semibold text-amber-800">Contraseña</div>
+          <input name="Contraseña" class="text-xl text-gray-700 w-full rounded-md border border-gray-300 p-2" type="password" value="">
         </div>
       </div>
     </div>
@@ -54,13 +54,19 @@
       </div>
     </div>
 
-    <!-- Botón de Guardar Cambios -->
-    <div class="flex justify-center">
+    <!-- Botones de Acción -->
+    <div class="flex justify-between">
       <button type="submit" class="bg-amber-300 text-white py-2 px-6 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
         Guardar Cambios
       </button>
+      <a href="{{ route('perfil') }}" class="inline-flex items-center">
+        <button type="button" class="bg-amber-300 text-white py-2 px-6 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
+          Cancelar
+        </button>
+      </a>
     </div>
   </form>
 </div>
 
 @endsection
+

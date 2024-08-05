@@ -49,8 +49,13 @@
           Mis Medallas
         </button>
         <a href="{{ route('logout') }}" class="text-end">
-          <button type="button" class="bg-amber-300 text-white py-2 px-4 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
+          <button type="button" class="bg-amber-300 text-white py-2 px-10 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
             Cerrar sesión
+          </button>
+        </a>
+        <a href="{{ route('confirmar') }}" class="text-end">
+          <button type="button" class="bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-700 focus:ring-opacity-50">
+            Eliminar mi cuenta
           </button>
         </a>
       </div>

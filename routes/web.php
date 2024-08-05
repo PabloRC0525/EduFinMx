@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-Route::get('/', function () {
+Route::middleware('guest')->get('/', function () {
     return view('logn');
 });
 
@@ -19,7 +19,7 @@ Route::view('/edit', 'edit')->middleware('auth')->name('edit');
 
 Route::view('/medallas', 'medallas')->middleware('auth')->name('medallas');
 
-Route::view('/login', 'logn')->name('login');
+Route::view('/login', 'logn')->middleware('guest')->name('login');
 
 // Ruta para mostrar el formulario de registro
 Route::view('/register', 'registrar')->name('registro');
@@ -38,3 +38,7 @@ Route::post('/iniciar-sesion', [UserController::class, 'login'])->name('iniciar-
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 Route::put('/perfil/actualizar', [UserController::class, 'Update'])->name('Actualizar');
+
+Route::view('/confirmar', 'confirmar')->middleware('auth')->name('confirmar');
+
+Route::delete('/eliminar-cuenta', [UserController::class, 'delete'])->name('eliminar-cuenta');

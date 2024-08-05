@@ -60,5 +60,16 @@
         });
     </script>
     @endif
+    @if (session('success'))
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  Swal.fire({
+    icon: 'success',
+    title: '¡Éxito!',
+    text: '{{ session('success') }}',
+    confirmButtonText: 'Aceptar'
+  });
+</script>
+@endif
 </body>
 </html>
