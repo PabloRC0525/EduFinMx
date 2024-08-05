@@ -1,50 +1,39 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('logn');
 });
 
-Route::get('Ahooro', function () {
-    return view('Ahooro');
-});
+Route::view('/ahorro', 'Ahooro')->middleware('auth')->name('Ahooro');
 
-Route::get('Home', function () {
-    return view('Home');
-});
+Route::view('/declaraciones', 'Declaraciones')->name('Declaraciones');
 
-Route::get('Declaraciones', function () {
-    return view('Declaraciones');
-});
+Route::view('/lecciones', 'Lecciones')->name('Lecciones');
 
-Route::get('Lecciones', function () {
-    return view('Lecciones');
-});
+Route::view('/perfil', 'perfil')->name('perfil');
 
-Route::get('perfil', function () {
-    return view('perfil');
-});
+Route::view('/edit', 'edit')->name('edit');
 
-Route::get('edit', function () {
-    return view('edit');
-});
+Route::view('/medallas', 'medallas')->name('medallas');
 
-Route::get('/registrar', function () {
-    return view('registrar');
-});
+Route::view('/login', 'logn')->name('login');
 
-Route::get('medallas', function () {
-    return view('medallas');
-});
+// Ruta para mostrar el formulario de registro
+Route::view('/register', 'registrar')->name('registro');
+
+// Ruta para iniciar sesión
+Route::view('/home', 'Home')->name('home');
+
+
+// Ruta para procesar el registro de usuario
+Route::post('/registrar-usuario', [UserController::class, 'register'])->name('registrar-usuario');
+
+// Ruta para procesar el inicio de sesión
+Route::post('/iniciar-sesion', [UserController::class, 'login'])->name('iniciar-sesion');
+
+// Ruta para procesar el cierre de sesión
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+

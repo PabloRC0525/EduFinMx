@@ -17,54 +17,53 @@
                 Registro de Usuario
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
-                <a href="#" onclick="login()" class="font-medium text-indigo-600 hover:text-indigo-500">
+                <a href="/" class="font-medium text-indigo-600 hover:text-indigo-500">
                     ¿Ya tienes cuenta? Inicia sesión
                 </a>
-                <script>
-                    function login() {
-                        // Aquí redirige a la vista 'user'
-                        window.location.href = '/';
-                    }
-                </script>
             </p>
         </div>
-        <form class="mt-8 space-y-6" action="/register" method="POST">
-            <input type="hidden" name="remember" value="true">
+        <form class="mt-8 space-y-6" method="POST" action="{{ route('registrar-usuario') }}">
+            @csrf
+            <!-- Campos del formulario -->
             <div class="rounded-md shadow-sm space-y-6">
+                <!-- Los campos del formulario van aquí -->
                 <div>
-                    <label for="nombre" class="sr-only">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" autocomplete="name" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Nombre">
+                    <label for="Nombre" class="sr-only">Nombre</label>
+                    <input id="Nombre" name="Nombre" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Nombre">
                 </div>
                 <div>
-                    <label for="email-address" class="sr-only">Email</label>
-                    <input id="email-address" name="email" type="email" autocomplete="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Correo electrónico">
+                    <label for="ApellidoPaterno" class="sr-only">Apellido Paterno</label>
+                    <input id="ApellidoPaterno" name="ApellidoPaterno" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Apellido Paterno">
                 </div>
                 <div>
-                    <label for="telefono" class="sr-only">Número de Teléfono</label>
-                    <input id="telefono" name="telefono" type="tel" autocomplete="tel" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Número de Teléfono">
+                    <label for="ApellidoMaterno" class="sr-only">Apellido Materno</label>
+                    <input id="ApellidoMaterno" name="ApellidoMaterno" type="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Apellido Materno">
                 </div>
                 <div>
-                    <label for="password" class="sr-only">Contraseña</label>
-                    <input id="password" name="password" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Contraseña">
+                    <label for="Correo" class="sr-only">Correo electrónico</label>
+                    <input id="Correo" name="Correo" type="email" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Correo electrónico">
+                </div>
+                <div>
+                    <label for="Telefono" class="sr-only">Número de Teléfono</label>
+                    <input id="Telefono" name="Telefono" type="tel" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Número de Teléfono">
+                </div>
+                <div>
+                    <label for="Contraseña" class="sr-only">Contraseña</label>
+                    <input id="Contraseña" name="Contraseña" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Contraseña">
                 </div>
                 <div>
                     <label for="password_confirmation" class="sr-only">Confirmar Contraseña</label>
-                    <input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirmar Contraseña">
+                    <input id="password_confirmation" name="password_confirmation" type="password" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Confirmar Contraseña">
                 </div>
             </div>
-
+        
             <div class="flex justify-center mt-4">
-                <button type="submit" onclick="Home()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
                     Registrarse
                 </button>
-                <script>
-                    function Home() {
-                        // Aquí redirige a la vista 'user'
-                        window.location.href = 'Home';
-                    }
-                </script>
             </div>
         </form>
+        
     </div>
 </body>
 </html>

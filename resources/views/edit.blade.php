@@ -17,8 +17,12 @@
           </svg>
         </div>
         <div class="text-center">
-          <div class="text-2xl font-semibold text-amber-800">Nombre</div>
-          <input class="text-xl text-gray-700 w-52 rounded-md border border-gray-300 p-2" type="text" value="Pablo Enrique Ramírez Carrillo">
+          <div class="text-2xl font-semibold text-amber-800">Nombre(s)</div>
+          <input class="text-xl text-gray-700 w-52 rounded-md border border-gray-300 p-2" type="text" value="Pablo Enrique">
+          <div class="text-2xl font-semibold text-amber-800">Apellido Paterno</div>
+          <input class="text-xl text-gray-700 w-52 rounded-md border border-gray-300 p-2" type="text" value="Ramírez">
+          <div class="text-2xl font-semibold text-amber-800">Apellido Materno</div>
+          <input class="text-xl text-gray-700 w-52 rounded-md border border-gray-300 p-2" type="text" value="Carrillo">
         </div>
       </div>
 

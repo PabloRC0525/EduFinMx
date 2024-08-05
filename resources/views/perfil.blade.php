@@ -43,6 +43,10 @@
         <button onclick="Medallas()" class="bg-amber-300 text-white py-2 px-4 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
           Mis Medallas
         </button>
+
+        <div class="col-md-3 mt-5 text-end">
+          <a href="{{route('logout')}}"><button type="button" class="bg-amber-300 text-white py-2 px-4 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50"> Cerrar sesión </button></a>
+        </div>
       </div>
     </div>
   </div>
