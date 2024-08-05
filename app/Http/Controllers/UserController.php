@@ -22,9 +22,7 @@ class UserController extends Controller
         $user->save();
         Auth::login($user);
 
-
-        // Redirigir al login
-        return Redirect::to('/home');
+        return redirect(route('home'));
     }
 
     public function login(Request $request)
@@ -33,8 +31,10 @@ class UserController extends Controller
             'Correo' => $request->input('Correo'),
             'password' => $request->input('Contraseña'),
         ];
+
+        $remember = ($request->has('remember') ? true : false);
     
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             return redirect()->intended(route('home'));
         } else {
@@ -52,4 +52,10 @@ class UserController extends Controller
 
         return redirect(route ('login'));
     }
+
+    public function Update(Request $request)
+    {
+        return redirect()->route('perfil')->with('success', 'Perfil actualizado con éxito.');
+    }
+    
 }

@@ -9,15 +9,15 @@ Route::get('/', function () {
 
 Route::view('/ahorro', 'Ahooro')->middleware('auth')->name('Ahooro');
 
-Route::view('/declaraciones', 'Declaraciones')->name('Declaraciones');
+Route::view('/declaraciones', 'Declaraciones')->middleware('auth')->name('Declaraciones');
 
-Route::view('/lecciones', 'Lecciones')->name('Lecciones');
+Route::view('/lecciones', 'Lecciones')->middleware('auth')->name('Lecciones');
 
-Route::view('/perfil', 'perfil')->name('perfil');
+Route::view('/perfil', 'perfil')->middleware('auth')->name('perfil');
 
-Route::view('/edit', 'edit')->name('edit');
+Route::view('/edit', 'edit')->middleware('auth')->name('edit');
 
-Route::view('/medallas', 'medallas')->name('medallas');
+Route::view('/medallas', 'medallas')->middleware('auth')->name('medallas');
 
 Route::view('/login', 'logn')->name('login');
 
@@ -25,7 +25,7 @@ Route::view('/login', 'logn')->name('login');
 Route::view('/register', 'registrar')->name('registro');
 
 // Ruta para iniciar sesión
-Route::view('/home', 'Home')->name('home');
+Route::view('/home', 'Home')->middleware('auth')->name('home');
 
 
 // Ruta para procesar el registro de usuario
@@ -37,3 +37,4 @@ Route::post('/iniciar-sesion', [UserController::class, 'login'])->name('iniciar-
 // Ruta para procesar el cierre de sesión
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
+Route::put('/perfil/actualizar', [UserController::class, 'Update'])->name('Actualizar');

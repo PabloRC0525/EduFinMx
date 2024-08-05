@@ -39,6 +39,11 @@
                     Ingresar
                 </button>
             </div>
+            <div>
+                <input type="checkbox" class="form-check-input" id="rememberCheck" name="remember">
+                <label class="form-check-label" for="rememberCheck">
+                    Mantener sesión iniciada</label>
+            </div>
         </form>
         <p class="mt-2 text-center text-sm text-gray-600">
             <a href="/register" class="font-medium text-indigo-600 hover:text-indigo-500">
