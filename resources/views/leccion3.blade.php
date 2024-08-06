@@ -98,7 +98,8 @@
 
 <script>
     var progress = 0; // Variable para almacenar el progreso actual
-    var completedVideos = JSON.parse(sessionStorage.getItem('completedVideos')) || { video1: false, video2: false };
+    var lessonId = 'lesson3'; // Identificador para la lección actual
+    var completedVideos = sessionStorage.getItem(`${lessonId}-completedVideos`) ? JSON.parse(sessionStorage.getItem(`${lessonId}-completedVideos`)) : { video1: false, video2: false };
 
     function updateProgressBar() {
         var progressBar = document.getElementById('progress-bar');
@@ -120,7 +121,7 @@
         if (!completedVideos[buttonId]) {
             progress = Math.min(progress + increment, 100); // Incrementar el progreso
             completedVideos[buttonId] = true;
-            sessionStorage.setItem('completedVideos', JSON.stringify(completedVideos)); // Guardar estado en sessionStorage
+            sessionStorage.setItem(`${lessonId}-completedVideos`, JSON.stringify(completedVideos)); // Guardar estado en sessionStorage
             button.classList.add('completed-button'); // Desactivar el botón
             button.disabled = true; // Opcional: Desactivar el botón para evitar clics futuros
             updateProgressBar();
@@ -142,6 +143,7 @@
             video2Button.disabled = true;
             progress += 50;
         }
+
         updateProgressBar();
     }
 
@@ -158,4 +160,3 @@
 </script>
 
 @endsection
-
