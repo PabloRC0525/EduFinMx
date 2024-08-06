@@ -84,7 +84,7 @@
 
 <div id="button-container">
     <a href="{{ route('lec2') }}"><button id="prev-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Anterior</button></a>
-    <a href="{{ route('medallas') }}"><button id="next-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Finalizar</button></a>
+    <a href="{{ route('medallas') }}"><button id="next-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Mis medallas</button></a>
 </div>
 
 <section class="lecciones mt-5">

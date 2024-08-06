@@ -11,6 +11,10 @@
   #next-button {
       display: none; /* Oculta el botón de "Siguiente" por defecto */
   }
+  .completed-button {
+      cursor: not-allowed; /* Cambia el cursor para indicar que el botón está deshabilitado */
+      opacity: 0.5; /* Cambia la opacidad del botón deshabilitado */
+  }
 </style>
 
 <div class="w-full h-full flex items-center justify-center bg-white shadow-md rounded-lg overflow-hidden">
@@ -74,6 +78,7 @@
 </div>
 
 <div class="flex justify-center space-x-4">
+  <a href="{{ route('home') }}"><button id="prev-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Salir</button></a>
   <a href="{{ route('lec2') }}"><button id="next-button" type="button" class="bg-amber-500 hover:bg-amber-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300 m-5">Siguiente</button></a>
 </div>
 
@@ -106,13 +111,19 @@
     }
 
     document.getElementById('complete-video1').addEventListener('click', function() {
-        progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-        updateProgressBar();
+        if (!this.classList.contains('completed-button')) {
+            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
+            this.classList.add('completed-button'); // Agregar clase para deshabilitar el botón
+            updateProgressBar();
+        }
     });
 
     document.getElementById('complete-video2').addEventListener('click', function() {
-        progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-        updateProgressBar();
+        if (!this.classList.contains('completed-button')) {
+            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
+            this.classList.add('completed-button'); // Agregar clase para deshabilitar el botón
+            updateProgressBar();
+        }
     });
 
     // Inicialmente oculta el botón "Siguiente" hasta que se llena la barra
