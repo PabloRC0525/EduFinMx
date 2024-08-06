@@ -37,7 +37,7 @@
     <div class="flex flex-col space-y-6">
       <div>
         <div class="text-2xl font-semibold text-amber-800 mb-2">Nombre Completo</div>
-        <div class="flex space-x-4">
+        <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
           <div class="flex flex-col flex-1">
             <label class="text-xl font-semibold text-amber-800 mb-1">Nombre(s)</label>
             <input name="Nombre" class="text-xl text-gray-700 w-full rounded-md border border-gray-300 p-2" type="text" value="@auth {{Auth::user()->Nombre}} @endauth">
@@ -57,7 +57,7 @@
     <!-- Botones de Acción -->
     <div class="flex justify-between">
       <button type="submit" class="bg-amber-300 text-white py-2 px-6 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
-        Guardar Cambios
+        Guardar
       </button>
       <a href="{{ route('perfil') }}" class="inline-flex items-center">
         <button type="button" class="bg-amber-300 text-white py-2 px-6 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
@@ -69,4 +69,3 @@
 </div>
 
 @endsection
-

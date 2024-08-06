@@ -18,10 +18,10 @@ class UserController extends Controller
         'Nombre' => 'required|string|max:255',
         'ApellidoPaterno' => 'required|string|max:255',
         'ApellidoMaterno' => 'required|string|max:255',
-        'Correo' => 'required|email|unique:Users,Correo',
+        'email' => 'required|email|unique:Users,email',
         'Telefono' => 'required|numeric|digits:10|unique:Users,Telefono',
     ], [
-        'Correo.unique' => 'Ya existe una cuenta con este correo electrónico.',
+        'email.unique' => 'Ya existe una cuenta con este correo electrónico.',
         'Telefono.unique' => 'Este número de teléfono ya está registrado.',
     ]);
 
@@ -30,7 +30,7 @@ class UserController extends Controller
     $user->Nombre = $request->Nombre;
     $user->ApellidoPaterno = $request->ApellidoPaterno;
     $user->ApellidoMaterno = $request->ApellidoMaterno;
-    $user->Correo = $request->Correo;
+    $user->email = $request->email;
     $user->Telefono = $request->Telefono;
     $user->password = Hash::make($request->Contraseña); // Asegúrate de que la contraseña esté hasheada
     $user->save();
@@ -43,7 +43,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $credentials = [
-            'Correo' => $request->input('Correo'),
+            'email' => $request->input('email'),
             'password' => $request->input('Contraseña'),
         ];
 
