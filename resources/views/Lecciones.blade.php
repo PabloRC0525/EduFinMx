@@ -92,42 +92,63 @@
 </section>
 
 <script>
-    var progress = 0; // Variable para almacenar el progreso actual
+  var progress = 0; // Variable para almacenar el progreso actual
+  var completedVideos = sessionStorage.getItem('completedVideos') ? JSON.parse(sessionStorage.getItem('completedVideos')) : {};
 
-    function updateProgressBar() {
-        var progressBar = document.getElementById('progress-bar');
-        var nextButton = document.getElementById('next-button');
+  function updateProgressBar() {
+      var progressBar = document.getElementById('progress-bar');
+      var nextButton = document.getElementById('next-button');
 
-        // Mostrar el botón "Siguiente" solo si la barra está llena
-        if (progress >= 100) {
-            progress = 100;
-            nextButton.style.display = 'block';
-        } else {
-            nextButton.style.display = 'none';
-        }
+      // Mostrar el botón "Siguiente" solo si la barra está llena
+      if (progress >= 100) {
+          progress = 100;
+          nextButton.style.display = 'block';
+      } else {
+          nextButton.style.display = 'none';
+      }
 
-        // Actualizar el ancho de la barra de progreso
-        progressBar.style.width = progress + '%';
-    }
+      // Actualizar el ancho de la barra de progreso
+      progressBar.style.width = progress + '%';
+  }
 
-    document.getElementById('complete-video1').addEventListener('click', function() {
-        if (!this.classList.contains('completed-button')) {
-            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-            this.classList.add('completed-button'); // Agregar clase para deshabilitar el botón
-            updateProgressBar();
-        }
-    });
+  function handleButtonClick(buttonId, increment) {
+      var button = document.getElementById(buttonId);
+      if (!completedVideos[buttonId]) {
+          progress = Math.min(progress + increment, 100); // Incrementar el progreso
+          button.classList.add('completed-button'); // Agregar clase para deshabilitar el botón
+          completedVideos[buttonId] = true;
+          sessionStorage.setItem('completedVideos', JSON.stringify(completedVideos)); // Guardar estado en sessionStorage
+          updateProgressBar();
+      }
+  }
 
-    document.getElementById('complete-video2').addEventListener('click', function() {
-        if (!this.classList.contains('completed-button')) {
-            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-            this.classList.add('completed-button'); // Agregar clase para deshabilitar el botón
-            updateProgressBar();
-        }
-    });
+  function initializeView() {
+      var video1Button = document.getElementById('complete-video1');
+      var video2Button = document.getElementById('complete-video2');
 
-    // Inicialmente oculta el botón "Siguiente" hasta que se llena la barra
-    updateProgressBar();
+      // Inicializa el progreso y el estado de los botones
+      if (completedVideos['complete-video1']) {
+          video1Button.classList.add('completed-button');
+          progress += 50;
+      }
+      if (completedVideos['complete-video2']) {
+          video2Button.classList.add('completed-button');
+          progress += 50;
+      }
+
+      updateProgressBar();
+  }
+
+  document.getElementById('complete-video1').addEventListener('click', function() {
+      handleButtonClick('complete-video1', 50); // Incrementar el progreso en 50%
+  });
+
+  document.getElementById('complete-video2').addEventListener('click', function() {
+      handleButtonClick('complete-video2', 50); // Incrementar el progreso en 50%
+  });
+
+  // Inicializar el estado de la vista
+  initializeView();
 </script>
 
 @endsection

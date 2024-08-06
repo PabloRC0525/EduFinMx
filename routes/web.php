@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
-Route::middleware('guest')->get('/', function () {
+Route::get('/', function () {
     return view('logn');
 });
 
@@ -19,7 +19,7 @@ Route::view('/edit', 'edit')->middleware('auth')->name('edit');
 
 Route::view('/medallas', 'medallas')->middleware('auth')->name('medallas');
 
-Route::view('/login', 'logn')->middleware('guest')->name('login');
+Route::view('/login', 'logn')->name('login');
 
 // Ruta para mostrar el formulario de registro
 Route::view('/register', 'registrar')->name('registro');

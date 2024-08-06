@@ -32,7 +32,7 @@
         </div>
         <div class="mb-6">
           <div class="text-2xl font-semibold text-amber-800">Correo</div>
-          <div class="text-xl text-gray-700">@auth {{Auth::user()->Correo}} @endauth</div>
+          <div class="text-xl text-gray-700">@auth {{Auth::user()->email}} @endauth</div>
         </div>
         <div class="mb-6">
           <div class="text-2xl font-semibold text-amber-800">Número</div>
@@ -44,9 +44,6 @@
       <div class="flex flex-col space-y-4">
         <a href="{{ route('edit') }}"><button class="bg-amber-300 text-white py-2 px-20 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
           Editar
-        </button></a>
-        <a href="{{ route('medallas') }}"><button class="bg-amber-300 text-white py-2 px-12 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">
-          Mis Medallas
         </button></a>
         <a href="{{ route('logout') }}" class="text-end">
           <button type="button" class="bg-amber-300 text-white py-2 px-12 rounded-lg hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-opacity-50">

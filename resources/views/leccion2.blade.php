@@ -39,7 +39,7 @@
 <br>
 <div class="flex items-center bg-amber-500 text-white rounded-lg p-4">
   <div class="flex rounded-full bg-white text-amber-500 h-12 w-12 items-center justify-center mr-4">
-    <span class="text-xl font-bold">1</span>
+    <span class="text-xl font-bold">2</span>
   </div>
   <div>
     <h2 class="text-xl font-bold">Lección 2: Presupuesto y planificación financiera</h2>
@@ -67,7 +67,7 @@
         <div class="p-4">
             <div class="bg-amber-500 text-white rounded-lg p-4 mb-4 flex items-center">
                 <img src="imagenes/video.png" alt="Video" class="h-14 mr-2">
-                <h4 class="text-xl text-center font-bold">Planificacion financiera</h4>
+                <h4 class="text-xl text-center font-bold">Planificación financiera</h4>
             </div>
             <div class="relative" style="padding-top: 56.25%">
                 <iframe id="video2" src="https://www.youtube.com/embed/0lMDd6iX85c" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
@@ -98,10 +98,8 @@
 
 <script>
     var progress = 0; // Variable para almacenar el progreso actual
-    var completedVideos = {
-        video1: false,
-        video2: false
-    };
+    var lessonId = 'lesson2'; // Identificador para la lección actual
+    var completedVideos = sessionStorage.getItem(`${lessonId}-completedVideos`) ? JSON.parse(sessionStorage.getItem(`${lessonId}-completedVideos`)) : { video1: false, video2: false };
 
     function updateProgressBar() {
         var progressBar = document.getElementById('progress-bar');
@@ -118,29 +116,47 @@
         progressBar.style.width = progress + '%';
     }
 
-    document.getElementById('complete-video1').addEventListener('click', function() {
-        if (!completedVideos.video1) {
-            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-            completedVideos.video1 = true;
+    function handleButtonClick(buttonId, increment) {
+        var button = document.getElementById(buttonId);
+        if (!completedVideos[buttonId]) {
+            progress = Math.min(progress + increment, 100); // Incrementar el progreso
+            completedVideos[buttonId] = true;
+            sessionStorage.setItem(`${lessonId}-completedVideos`, JSON.stringify(completedVideos)); // Guardar estado en sessionStorage
+            button.classList.add('completed-button'); // Desactivar el botón
+            button.disabled = true; // Opcional: Desactivar el botón para evitar clics futuros
             updateProgressBar();
-            this.classList.add('completed-button'); // Desactivar el botón
-            this.disabled = true; // Opcional: Desactivar el botón para evitar clics futuros
         }
+    }
+
+    function initializeView() {
+        var video1Button = document.getElementById('complete-video1');
+        var video2Button = document.getElementById('complete-video2');
+
+        // Inicializa el progreso y el estado de los botones
+        if (completedVideos['complete-video1']) {
+            video1Button.classList.add('completed-button');
+            video1Button.disabled = true;
+            progress += 50;
+        }
+        if (completedVideos['complete-video2']) {
+            video2Button.classList.add('completed-button');
+            video2Button.disabled = true;
+            progress += 50;
+        }
+
+        updateProgressBar();
+    }
+
+    document.getElementById('complete-video1').addEventListener('click', function() {
+        handleButtonClick('complete-video1', 50); // Incrementar el progreso en 50%
     });
 
     document.getElementById('complete-video2').addEventListener('click', function() {
-        if (!completedVideos.video2) {
-            progress = Math.min(progress + 50, 100); // Incrementar el progreso en 50% pero no superar 100%
-            completedVideos.video2 = true;
-            updateProgressBar();
-            this.classList.add('completed-button'); // Desactivar el botón
-            this.disabled = true; // Opcional: Desactivar el botón para evitar clics futuros
-        }
+        handleButtonClick('complete-video2', 50); // Incrementar el progreso en 50%
     });
 
-    // Inicialmente oculta el botón "Siguiente" hasta que se llena la barra
-    updateProgressBar();
+    // Inicializar el estado de la vista
+    initializeView();
 </script>
 
 @endsection
-
