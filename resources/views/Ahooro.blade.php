@@ -49,7 +49,7 @@
     <div class="md:flex">
       <div class="md:w-1/2 md:pr-4">
         <div class="relative" style="padding-top: 56.25%;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/QEnDbr6Q_64" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/8Yh6XfZV8zA" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
         </div>
       </div>
       <div class="md:w-1/2 md:pl-4 flex justify-center items-center">
@@ -73,7 +73,7 @@
     <div class="md:flex">
       <div class="md:w-1/2 md:pr-4">
         <div class="relative" style="padding-top: 56.25%;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/QEnDbr6Q_64" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/NUYXn8cThYU" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
         </div>
       </div>
       <div class="md:w-1/2 md:pl-4 flex justify-center items-center">
@@ -99,7 +99,7 @@
     <div class="md:flex">
       <div class="md:w-1/2 md:pr-4">
         <div class="relative" style="padding-top: 56.25%;">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/QEnDbr6Q_64" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hTIDbREmaB8" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
         </div>
       </div>
       <div class="md:w-1/2 md:pl-4 flex justify-center items-center">

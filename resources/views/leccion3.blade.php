@@ -42,8 +42,8 @@
     <span class="text-xl font-bold">1</span>
   </div>
   <div>
-    <h2 class="text-xl font-bold">Lección 1: Ahorro e Inversión</h2>
-    <p class="text-lg mt-1">Aquí encontrarás información sobre ahorro e inversión, así como ejemplos y consejos para lograr tus objetivos financieros.</p>
+    <h2 class="text-xl font-bold">Lección 3: Conceptos básicos de ahorro</h2>
+    <p class="text-lg mt-1"></p>
   </div>
 </div>
 
@@ -54,10 +54,10 @@
         <div class="p-4">
             <div class="bg-amber-500 text-white rounded-lg p-4 mb-4 flex items-center">
                 <img src="imagenes/video.png" alt="Video" class="h-14 mr-2">
-                <h4 class="text-xl text-center font-bold">Introducción al ahorro</h4>
+                <h4 class="text-xl text-center font-bold">¿Ya conoces sobre el concepto de ahorro?</h4>
             </div>
             <div class="relative" style="padding-top: 56.25%">
-                <iframe id="video1" src="https://www.youtube.com/embed/QEnDbr6Q_64" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
+                <iframe id="video1" src="https://www.youtube.com/embed/KDxhvehEius" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
             </div>
             <button id="complete-video1" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Marcar como completado</button>
         </div>
@@ -67,10 +67,10 @@
         <div class="p-4">
             <div class="bg-amber-500 text-white rounded-lg p-4 mb-4 flex items-center">
                 <img src="imagenes/video.png" alt="Video" class="h-14 mr-2">
-                <h4 class="text-xl text-center font-bold">Estrategias de inversión</h4>
+                <h4 class="text-xl text-center font-bold">Tips para ahorrar</h4>
             </div>
             <div class="relative" style="padding-top: 56.25%">
-                <iframe id="video2" src="https://www.youtube.com/embed/h48Sqy6C2Zg" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
+                <iframe id="video2" src="https://www.youtube.com/embed/PI3WW-0TLtg" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
             </div>
             <button id="complete-video2" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">Marcar como completado</button>
         </div>
